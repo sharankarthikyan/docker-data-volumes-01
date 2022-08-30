@@ -1,13 +1,22 @@
 ## COMMANDS
 
-> Named containers are present in GLOBAL namespace of docker.
+`docker run -p 81:80 -v <VOLUME_NAME>:<CONTAINER_PATH> -v <HOST_MACHINE_PATH>:<CONTAINER_PATH> -v <CONTAINER_PATH> -d <IMAGE>`
 
-To verfiy the above line, run a container using 2 times with different port. It will create 2 containers (If your are mentioning name for a container. Please give different names for the container.)
+### Named volume:
 
-`docker run --rm -p 80:80 -v <VOLUME_NAME>:<PATH_TO_FOLDER_IN_CONTAINER> -d <IAMGE>`
+`-v <VOLUME_NAME>:<CONTAINER_PATH>`
 
-and
+### Bind Mount:
 
-`docker run --rm -p 81:80 -v <VOLUME_NAME>:<PATH_TO_FOLDER_IN_CONTAINER> -d <IAMGE>`
+`-v <HOST_MACHINE_PATH>:<CONTAINER_PATH>`
 
-NOTE: make sure both `<VOLUME_NAME>:<PATH_TO_FOLDER_IN_CONTAINER>` should be the same. Docker named volume's path couldn't be overriden.
+### Anonymous Volume:
+
+`-v <CONTAINER_PATH>`
+
+In this command, the order of volume matters.
+
+Example:
+`docker run -p 81:80 -v feedback:/app/feedback -v /Users/sharan/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
+
+[Link](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/learn/lecture/22166916#overview)

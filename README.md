@@ -19,4 +19,6 @@ In this command, the order of volume matters.
 Example:
 `docker run -p 81:80 -v feedback:/app/feedback -v /Users/sharan/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
 
+In this example, we used anonymous volume to lock the containers path data and it make sure, it will not be overriden by any other volumes.
+
 [Link](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/learn/lecture/22166916#overview)

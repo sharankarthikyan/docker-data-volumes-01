@@ -1,24 +1,7 @@
-## COMMANDS
+Examples:
 
-`docker run -p 81:80 -v <VOLUME_NAME>:<CONTAINER_PATH> -v <HOST_MACHINE_PATH>:<CONTAINER_PATH> -v <CONTAINER_PATH> -d <IMAGE>`
+1. `docker run --rm -p 80:8000 --env PORT=8000 -v feedback:/app/feedback -v /Users/sharan/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
 
-### Named volume:
+2. `docker run --rm -p 80:8000 -e PORT=8000 -v feedback:/app/feedback -v /Users/sharan-11498/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
 
-`-v <VOLUME_NAME>:<CONTAINER_PATH>`
-
-### Bind Mount:
-
-`-v <HOST_MACHINE_PATH>:<CONTAINER_PATH>`
-
-### Anonymous Volume:
-
-`-v <CONTAINER_PATH>`
-
-In this command, the order of volume matters.
-
-Example:
-`docker run -p 81:80 -v feedback:/app/feedback -v /Users/sharan/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
-
-In this example, we used anonymous volume to lock the containers path data and it make sure, it will not be overriden by any other volumes.
-
-[Link](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/learn/lecture/22166916#overview)
+3. `docker run --rm -p 80:8000 -e PORT=8000 -e REGION=ASIA-PACIFIC -v feedback:/app/feedback -v /Users/sharan-11498/Desktop/Sharan/Git/data-volumes-01-starting-setup:/app -v /app/node_modules -d doc-vol-01`
